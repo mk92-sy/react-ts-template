@@ -35,3 +35,47 @@ main.contents-area {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+.d-flex {
+  display: flex;
+  &.col {
+    flex-direction: column;
+  }
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.py-13 {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.gap-1 {
+  gap: 7px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

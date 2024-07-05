@@ -1,0 +1,23 @@
+.icon {
+  position: relative;
+  display: block;
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  &.dash {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 2px;
+      background-color: #000;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+    }
+  }
+}

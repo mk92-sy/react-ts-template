@@ -1,3 +1,4 @@
+import css from "./Input.module.scss";
 import { InputHTMLAttributes, ChangeEvent } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,8 +7,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   // children: Required<ButtonHTMLAttributes<HTMLButtonElement>>["children"];
 }
 
-const Input = ({ onChange, ...rest }: InputProps) => {
-  return <input onChange={(e) => onChange(e)} {...rest} />;
+const Input = ({ onChange, className, ...rest }: InputProps) => {
+  return (
+    <input
+      onChange={(e) => onChange(e)}
+      className={`${css.input} ${className || ""}`}
+      {...rest}
+    />
+  );
 };
 
 export default Input;

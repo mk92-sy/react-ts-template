@@ -1,3 +1,4 @@
+import css from "./Button.module.scss"
 import { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,9 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   // children: Required<ButtonHTMLAttributes<HTMLButtonElement>>["children"];
 }
 
-const Button = ({ size = "md", children, ...rest }: ButtonProps) => {
+const Button = ({ size = "md", children, className, ...rest }: ButtonProps) => {
   return (
-    <button {...rest}>
+    <button className={`${css.btn} ${css[size]}`} {...rest}>
       {children}
     </button>
   );
