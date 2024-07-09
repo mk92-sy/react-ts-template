@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../organisms/Header";
 import Footer from "../organisms/Footer";
+import Dimm from "../atoms/Dimm";
 
 export default function MainLayout() {
   return (

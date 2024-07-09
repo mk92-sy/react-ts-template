@@ -26,9 +26,9 @@
   -o-border-radius: 8px;
 }
 
-.contents {
+.panel {
   position: relative;
-  padding: 0;
+  padding: 0 16px;
   transition: all 0.3s ease-in-out;
   overflow: visible;
   transition: height 0.3s ease-in-out;

@@ -44,16 +44,19 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
   }, []);
 
   useEffect(() => {
-    if (isOpen && containerRef.current) {
+    if (isOpen) {
       calculateHeight();
+    } else {
+      setTotalHeight(0);
     }
   }, [isOpen]);
 
   return (
     <div
       role="region"
-      className={`${css.contents} ${className || ""}`}
+      className={`${css.panel} ${className || ""}`}
       ref={containerRef}
+      style={{ height: totalHeight || 0 }}
     >
       {children}
     </div>

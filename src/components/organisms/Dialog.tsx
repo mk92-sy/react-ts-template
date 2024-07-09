@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useFocusTrap } from "../../hooks/useFocus";
 import Button from "../atoms/Button";
-import Dimm from "../atoms/Dimm";
 import css from "./Dialog.module.scss";
+import Dimm from "../atoms/Dimm";
 
 interface DialogProps {
   type?: "confirm" | "alert";
