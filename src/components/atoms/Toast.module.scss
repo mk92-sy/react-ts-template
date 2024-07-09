@@ -1,0 +1,39 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 0px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  width: fit-content;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+  transform: translate(-50%, -20px);
+  -webkit-transform: translate(-50%, -20px);
+  -moz-transform: translate(-50%, -20px);
+  -ms-transform: translate(-50%, -20px);
+  -o-transform: translate(-50%, -20px);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  &.show {
+    transform: translate(-50%, -20px);
+    -webkit-transform: translate(-50%, -20px);
+    -moz-transform: translate(-50%, -20px);
+    -ms-transform: translate(-50%, -20px);
+    -o-transform: translate(-50%, -20px);
+  }
+  &.hide {
+    transform: translate(-50%, 50px);
+    -webkit-transform: translate(-50%, 50px);
+    -moz-transform: translate(-50%, 50px);
+    -ms-transform: translate(-50%, 50px);
+    -o-transform: translate(-50%, 50px);
+  }
+}

@@ -3,37 +3,37 @@
 @import "./variable";
 
 #root {
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: 100%;
   min-height: 100vh;
   max-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 header {
   display: flex;
-  height: 50px;
-  padding: 10px;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  border-bottom: 1px solid $COLOR_GRAY_300;
+  height: 50px;
 }
 
 footer {
-  height: 50px;
-  padding: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-top: 1px solid #ddd;
+  justify-content: center;
+  padding: 10px;
+  border-top: 1px solid $COLOR_GRAY_300;
+  height: 50px;
 }
 
 main.contents-area {
   flex: 1;
   padding: 20px;
-  max-height: calc(100vh - 100px);
   overflow-x: hidden;
   overflow-y: scroll;
+  max-height: calc(100vh - 100px);
 }
 
 .d-flex {
@@ -56,8 +56,8 @@ main.contents-area {
 }
 
 .px-20 {
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 .py-13 {
@@ -72,7 +72,7 @@ main.contents-area {
 .dot {
   width: 10px;
   height: 10px;
-  background-color: #000;
+  background-color: $COLOR_BLACK;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;

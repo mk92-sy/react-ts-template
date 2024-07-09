@@ -30,32 +30,31 @@ const Dialog = ({
   useFocusTrap(dialogRef, isOpen);
   return (
     <>
-      <Dimm isOpen={isOpen} />
-      <div
-        className={`${css.wrapper} ${isOpen ? css.open : css.close}`}
-        {...rest}
-        ref={dialogRef}
-      >
-        <div className={css.header}>
-          <h2 tabIndex={0}>{title}</h2>
+      <Dimm isOpen={isOpen}>
+        <div
+          className={`${css.wrapper} ${isOpen ? css.open : css.close}`}
+          {...rest}
+          ref={dialogRef}
+        >
+          <div className={css.header}>
+            <h2 tabIndex={0}>{title}</h2>
+          </div>
+          <div className={css.contents} tabIndex={0}>
+            {content}
+          </div>
+          <div className={css["btn-wrap"]}>
+            {type === "confirm" && (
+              <Button onClick={onConfirm}>{confirmButtonText}</Button>
+            )}
+            <Button onClick={onConfirm ? onConfirm : onClose}>
+              {onConfirm ? confirmButtonText : cancleButtonText}
+            </Button>
+          </div>
+          <div className={css.footer}>
+            <Button onClick={onClose}>X</Button>
+          </div>
         </div>
-        <div className={css.contents} tabIndex={0}>
-          {content}
-        </div>
-        <div className={css["btn-wrap"]}>
-          {type === "confirm" && (
-            <Button onClick={onConfirm}>{confirmButtonText}</Button>
-          )}
-          <Button onClick={onConfirm ? onConfirm : onClose}>
-            {onConfirm ? confirmButtonText : cancleButtonText}
-          </Button>
-        </div>
-        <div className={css.footer}>
-          <Button onClick={onClose}>
-            X
-          </Button>
-        </div>
-      </div>
+      </Dimm>
     </>
   );
 };

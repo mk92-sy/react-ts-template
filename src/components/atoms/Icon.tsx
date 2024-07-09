@@ -4,6 +4,6 @@ interface IconProps {
   type: string;
 }
 
-export default function Icon({ type = "dash" }: IconProps) {
+export default function Icon({ type }: IconProps) {
   return <span tabIndex={-1} className={`${css.icon} ${css[type]}`} />;
 }
