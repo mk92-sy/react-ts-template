@@ -175,7 +175,7 @@ export default function MainPage() {
             <Input
               id="telNum"
               placeholder="241235"
-              type="text"
+              type="number"
               onFocus={() => {
                 setIsFocus(true);
               }}
@@ -186,7 +186,7 @@ export default function MainPage() {
               value={inputValue1}
               style={{ minWidth: "calc(50% - 14px)" }}
               onChange={(e) => {
-                setInputValue1(e.target.value);
+                setInputValue1(e.target.value.slice(0, 6));
               }}
               ref={inputRef1}
             />
@@ -197,7 +197,8 @@ export default function MainPage() {
             >
               <Input
                 id="telNum2"
-                type="text"
+                placeholder="1"
+                type="number"
                 onFocus={() => {
                   setIsFocus(true);
                 }}
@@ -207,7 +208,7 @@ export default function MainPage() {
                 maxLength={1}
                 value={inputValue2}
                 onChange={(e) => {
-                  setInputValue2(e.target.value);
+                  setInputValue2(e.target.value.slice(0, 1));
                 }}
                 style={{ width: "10px" }}
                 ref={inputRef2}
