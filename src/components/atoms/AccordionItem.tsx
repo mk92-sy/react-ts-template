@@ -39,3 +39,5 @@ export const AccordionItem: React.FC<PropsWithChildren<AccordionItemProps>> = ({
     </div>
   );
 };
+
+export default AccordionItem;

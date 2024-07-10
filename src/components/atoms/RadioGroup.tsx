@@ -1,0 +1,58 @@
+import { ReactNode } from "react";
+import { RadioGroupContext } from "../../context/RadioContext";
+import css from "./Radio.module.scss";
+
+interface RadioGroupProps {
+  name: string;
+  selectedValue: string;
+  onChange: (value: string) => void;
+  children: ReactNode;
+  legend?: string;
+}
+
+const RadioGroup: React.FC<RadioGroupProps> = ({
+  name,
+  selectedValue,
+  onChange,
+  children,
+  legend,
+}) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLFieldSetElement>) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+      event.preventDefault();
+      const radios = Array.from(
+        event.currentTarget.querySelectorAll<HTMLInputElement>(
+          'input[type="radio"]'
+        )
+      );
+      const currentIndex = radios.findIndex((radio) => radio.checked);
+      const nextIndex = (currentIndex + 1) % radios.length;
+      radios[nextIndex].click();
+      radios[nextIndex].focus();
+    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      event.preventDefault();
+      const radios = Array.from(
+        event.currentTarget.querySelectorAll<HTMLInputElement>(
+          'input[type="radio"]'
+        )
+      );
+      const currentIndex = radios.findIndex((radio) => radio.checked);
+      const prevIndex = (currentIndex - 1 + radios.length) % radios.length;
+      radios[prevIndex].click();
+      radios[prevIndex].focus();
+    }
+  };
+
+  return (
+    <RadioGroupContext.Provider value={{ name, selectedValue, onChange }}>
+      <fieldset className={css.fieldset} onKeyDown={handleKeyDown}>
+        <legend className={css.legend}>{legend}</legend>
+        <div className={css.group} role="radiogroup">
+          {children}
+        </div>
+      </fieldset>
+    </RadioGroupContext.Provider>
+  );
+};
+
+export default RadioGroup;

@@ -11,6 +11,7 @@ const Switch = ({ className, ...rest }: SwitchProps) => {
   return (
     <input
       type="checkbox"
+      role="switch"
       {...rest}
       className={`${css.switch} ${className || ""}`}
     />

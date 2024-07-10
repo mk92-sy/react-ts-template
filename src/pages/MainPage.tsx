@@ -1,19 +1,24 @@
-import { useState } from "react";
-import Button from "../components/atoms/Button";
-import Input from "../components/atoms/Input";
-import Dialog from "../components/organisms/Dialog";
-import Title from "../components/atoms/Title";
-import Checkbox from "../components/atoms/Checkbox";
-import Switch from "../components/atoms/Switch";
-import Icon from "../components/atoms/Icon";
-import Label from "../components/atoms/Label";
-import Toast from "../components/atoms/Toast";
+import { useState, useRef } from "react";
 
-import { AccordionItem } from "../components/atoms/AccordionItem";
-import { AccordionButton } from "../components/atoms/AccordionButton";
-import { AccordionPanel } from "../components/atoms/AccordionPanel";
 import { Accordion } from "../context/Accordion";
+
 import { Mobile } from "../styles/mediaQuery";
+import {
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Button,
+  Input,
+  Title,
+  Checkbox,
+  Switch,
+  Icon,
+  Label,
+  Toast,
+  Radio,
+  RadioGroup,
+} from "../components/atoms";
+import { Dialog } from "../components/organisms";
 
 export default function MainPage() {
   const [inputValue1, setInputValue1] = useState("");
@@ -22,7 +27,10 @@ export default function MainPage() {
   const [isOpenToast, setIsOpenToast] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-
+  const [isFocus, setIsFocus] = useState(false);
+  const [selectedFruit, setSelectedFruit] = useState<string>("apple");
+  const inputRef1 = useRef(null);
+  const inputRef2 = useRef(null);
   return (
     //html(JSX)는 이곳에
     <>
@@ -128,6 +136,17 @@ export default function MainPage() {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
+
+        <RadioGroup
+          name="fruits"
+          selectedValue={selectedFruit}
+          onChange={setSelectedFruit}
+          legend="choice your fruit"
+        >
+          <Radio id="apple-option" value="apple" label="Apple" />
+          <Radio id="banana-option" value="banana" label="Banana" />
+        </RadioGroup>
+
         {/* ▼ 모든 JSX 문법 사용가능(ex: onClick, disabled...) */}
         <Button
           onClick={() => {
@@ -144,19 +163,32 @@ export default function MainPage() {
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
-        <Label htmlFor="telNum" className="d-flex col gap-1 px-20 py-13">
+        <Label
+          htmlFor="telNum"
+          className="d-flex col gap-1 px-20 py-13"
+          style={{
+            border: isFocus ? "2px solid #000" : "2px solid #eee",
+          }}
+        >
           <span>Birth</span>
           <div className="d-flex align-center">
             <Input
               id="telNum"
               placeholder="241235"
               type="text"
+              onFocus={() => {
+                setIsFocus(true);
+              }}
+              onBlur={() => {
+                setIsFocus(false);
+              }}
               maxLength={6}
               value={inputValue1}
               style={{ minWidth: "calc(50% - 14px)" }}
               onChange={(e) => {
                 setInputValue1(e.target.value);
               }}
+              ref={inputRef1}
             />
             <Icon type="dash" />
             <div
@@ -166,12 +198,19 @@ export default function MainPage() {
               <Input
                 id="telNum2"
                 type="text"
+                onFocus={() => {
+                  setIsFocus(true);
+                }}
+                onBlur={() => {
+                  setIsFocus(false);
+                }}
                 maxLength={1}
                 value={inputValue2}
                 onChange={(e) => {
                   setInputValue2(e.target.value);
                 }}
                 style={{ width: "10px" }}
+                ref={inputRef2}
               />
               <span className="dot"></span>
               <span className="dot"></span>

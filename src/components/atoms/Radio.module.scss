@@ -1,0 +1,66 @@
+@import "../../styles/variable";
+
+.fieldset {
+  border: 0;
+}
+.group {
+  display: flex;
+  padding: 8px 0;
+  gap: 16px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+.radio {
+  position: relative;
+  appearance: none;
+  padding-left: 20px;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  &::before {
+    background-color: #eee;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+  &::after {
+    background-color: $COLOR_PRIMARY;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%) scale(0);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    -moz-transform: translate(-50%, -50%) scale(0);
+    -ms-transform: translate(-50%, -50%) scale(0);
+    -o-transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+  }
+  &:checked {
+    &::after {
+      transform: translate(-50%, -50%) scale(1.2);
+      -webkit-transform: translate(-50%, -50%) scale(1.2);
+      -moz-transform: translate(-50%, -50%) scale(1.2);
+      -ms-transform: translate(-50%, -50%) scale(1.2);
+      -o-transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+}

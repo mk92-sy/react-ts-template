@@ -32,12 +32,17 @@ const Dialog = ({
     <>
       <Dimm isOpen={isOpen}>
         <div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal={isOpen}
+          aria-labelledby="dialogTitle"
           className={`${css.wrapper} ${isOpen ? css.open : css.close}`}
           {...rest}
-          ref={dialogRef}
         >
           <div className={css.header}>
-            <h2 tabIndex={0}>{title}</h2>
+            <h2 id="dialogTitle" tabIndex={0}>
+              {title}
+            </h2>
           </div>
           <div className={css.contents} tabIndex={0}>
             {content}

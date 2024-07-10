@@ -39,10 +39,12 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
         setTotalHeight("auto");
       }, 300);
     } else {
-      setTotalHeight(containerRef.current?.scrollHeight);
-      setTimeout(() => {
-        setTotalHeight(0);
-      }, 100);
+      if (totalHeight) {
+        setTotalHeight(containerRef.current?.scrollHeight);
+        setTimeout(() => {
+          setTotalHeight(0);
+        }, 100);
+      }
     }
   }, [isOpen]);
 
@@ -61,3 +63,4 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
     </div>
   );
 };
+export default AccordionPanel;

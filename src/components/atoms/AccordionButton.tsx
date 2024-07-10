@@ -38,3 +38,5 @@ export const AccordionButton: React.FC<AccordionButtonProps> = ({
     </button>
   );
 };
+
+export default AccordionButton;
