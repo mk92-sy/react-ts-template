@@ -1,5 +1,5 @@
 import css from "./Input.module.scss";
-import { InputHTMLAttributes, ChangeEvent } from "react";
+import { InputHTMLAttributes, ChangeEvent, forwardRef } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;

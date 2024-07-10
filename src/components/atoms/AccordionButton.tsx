@@ -1,12 +1,13 @@
 // AccordionButton.tsx
-import React, { useRef } from "react";
+import React, { ButtonHTMLAttributes, useRef } from "react";
 import css from "./Accordion.module.scss";
 import Icon from "./Icon";
+import { useAccordion } from "../../context/AccordionContext";
 
-interface AccordionButtonProps {
+interface AccordionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isOpen?: boolean;
-  openIcon?: string;
-  closeIcon?: string;
+  openIcon?: "plus" | "dash" | "spinner";
+  closeIcon?: "plus" | "dash" | "spinner";
   children: React.ReactNode;
   toggleItem?: () => void;
 }
@@ -20,7 +21,12 @@ export const AccordionButton: React.FC<AccordionButtonProps> = ({
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   return (
-    <button className={css.button} onClick={toggleItem} ref={buttonRef}>
+    <button
+      className={css.button}
+      aria-expanded={isOpen}
+      onClick={toggleItem}
+      ref={buttonRef}
+    >
       {children}{" "}
       {openIcon && closeIcon ? (
         isOpen ? (

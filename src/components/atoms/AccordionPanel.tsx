@@ -1,8 +1,8 @@
 // AccordionPanel.tsx
 import css from "./Accordion.module.scss";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, HTMLAttributes } from "react";
 
-interface AccordionPanelProps {
+interface AccordionPanelProps extends HTMLAttributes<HTMLElement> {
   className?: string;
   children: React.ReactNode;
   isOpen?: boolean;
@@ -14,26 +14,15 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
   isOpen,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [totalHeight, setTotalHeight] = useState(0);
+  const [totalHeight, setTotalHeight] = useState<any>(0);
 
   const calculateHeight = () => {
-    if (containerRef.current) {
-      const children = containerRef.current.children;
-      let heightSum = 0;
-      for (let i = 0; i < children.length; i++) {
-        heightSum += (children[i] as HTMLElement).offsetHeight;
-      }
-      setTotalHeight(heightSum);
-
-      console.log("containerRef.current : ", containerRef.current);
-      console.log("heightSum : ", heightSum);
+    if (containerRef.current && isOpen) {
+      setTotalHeight(containerRef.current.scrollHeight);
     }
   };
 
   useEffect(() => {
-    // 초기 계산
-    calculateHeight();
-
     // resize 이벤트 리스너 추가
     window.addEventListener("resize", calculateHeight);
 
@@ -46,8 +35,14 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
   useEffect(() => {
     if (isOpen) {
       calculateHeight();
+      setTimeout(() => {
+        setTotalHeight("auto");
+      }, 300);
     } else {
-      setTotalHeight(0);
+      setTotalHeight(containerRef.current?.scrollHeight);
+      setTimeout(() => {
+        setTotalHeight(0);
+      }, 100);
     }
   }, [isOpen]);
 
@@ -55,8 +50,12 @@ export const AccordionPanel: React.FC<AccordionPanelProps> = ({
     <div
       role="region"
       className={`${css.panel} ${className || ""}`}
+      aria-hidden={!isOpen}
       ref={containerRef}
-      style={{ height: totalHeight || 0 }}
+      style={{
+        height: totalHeight,
+        minHeight: 0,
+      }}
     >
       {children}
     </div>

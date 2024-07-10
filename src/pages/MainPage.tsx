@@ -13,6 +13,7 @@ import { AccordionItem } from "../components/atoms/AccordionItem";
 import { AccordionButton } from "../components/atoms/AccordionButton";
 import { AccordionPanel } from "../components/atoms/AccordionPanel";
 import { Accordion } from "../context/Accordion";
+import { Mobile } from "../styles/mediaQuery";
 
 export default function MainPage() {
   const [inputValue1, setInputValue1] = useState("");
@@ -27,12 +28,20 @@ export default function MainPage() {
     <>
       <div aria-hidden={isOpenDialog}>
         <Title headingLevel={3}>Sub Title</Title>
-        <Checkbox
-          checked={isChecked1}
-          onChange={(e) => {
-            setIsChecked1(e.target.checked);
-          }}
-        />
+        <Mobile>
+          <div className="d-flex align-center">
+            <Checkbox
+              id="mobileCheckbox"
+              checked={isChecked1}
+              onChange={(e) => {
+                setIsChecked1(e.target.checked);
+              }}
+            />
+            <Label htmlFor="mobileCheckbox">
+              모바일에서만 나타나는 체크박스
+            </Label>
+          </div>
+        </Mobile>
         <Switch
           checked={isChecked2}
           onChange={(e) => {
@@ -69,11 +78,16 @@ export default function MainPage() {
         {/* type: single / multiple */}
         <Accordion type="multiple">
           <AccordionItem index={0}>
-            <AccordionButton openIcon="plus" closeIcon="dash">
+            <AccordionButton
+              id="accordion1"
+              aria-controls="accordion1-panel"
+              openIcon="plus"
+              closeIcon="dash"
+            >
               <Title headingLevel={4}>Accordion Title</Title>
             </AccordionButton>
-            <AccordionPanel>
-              <div>
+            <AccordionPanel id="accordion1-panel" aria-labelledby="accordion1">
+              <p style={{ padding: "0 16px 16px" }}>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don't look even
@@ -81,13 +95,14 @@ export default function MainPage() {
                 Ipsum, you need to be sure there isn't anything embarrassing
                 hidden in the middle of text. All the Lorem Ipsum generators on
                 the Internet tend to repeat predefined chunks as necessary,
-              </div>
+              </p>
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem index={1}>
             <AccordionButton>Accordion Title2</AccordionButton>
             <AccordionPanel>
-              <div>
+              <p style={{ padding: "0 16px 16px" }}>
+                {" "}
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don't look even
@@ -95,13 +110,13 @@ export default function MainPage() {
                 Ipsum, you need to be sure there isn't anything embarrassing
                 hidden in the middle of text. All the Lorem Ipsum generators on
                 the Internet tend to repeat predefined chunks as necessary,
-              </div>
+              </p>
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem index={2}>
-            <AccordionButton>Accordion Title3\</AccordionButton>
+            <AccordionButton>Accordion Title3</AccordionButton>
             <AccordionPanel>
-              <div>
+              <p style={{ padding: "0 16px 16px" }}>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
                 injected humour, or randomised words which don't look even
@@ -109,7 +124,7 @@ export default function MainPage() {
                 Ipsum, you need to be sure there isn't anything embarrassing
                 hidden in the middle of text. All the Lorem Ipsum generators on
                 the Internet tend to repeat predefined chunks as necessary,
-              </div>
+              </p>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
@@ -127,7 +142,7 @@ export default function MainPage() {
           }}
           disabled={isOpenToast}
         >
-          {isOpenToast ? "Showing Toast" : "Show Toast (3s)"}
+          {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
         <Label htmlFor="telNum" className="d-flex col gap-1 px-20 py-13">
           <span>Birth</span>
