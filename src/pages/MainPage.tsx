@@ -176,6 +176,10 @@ export default function MainPage() {
               id="telNum"
               placeholder="241235"
               type="number"
+              inputMode="decimal"
+              onKeyDown={(evt) =>
+                ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+              }
               onFocus={() => {
                 setIsFocus(true);
               }}
@@ -199,6 +203,9 @@ export default function MainPage() {
                 id="telNum2"
                 placeholder="1"
                 type="number"
+                onKeyDown={(evt) =>
+                  ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+                }
                 onFocus={() => {
                   setIsFocus(true);
                 }}
