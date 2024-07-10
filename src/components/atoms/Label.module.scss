@@ -1,4 +1,5 @@
 .wrapper {
+  line-height: 20px;
   &.active,
   &:active {
     border-color: #000;
@@ -9,5 +10,6 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    line-height: 20px;
   }
 }
