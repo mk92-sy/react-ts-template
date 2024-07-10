@@ -34,7 +34,7 @@ export default function MainPage() {
   return (
     //html(JSX)는 이곳에
     <>
-      <div aria-hidden={isOpenDialog}>
+      <div className="d-flex col gap-3" aria-hidden={isOpenDialog}>
         <Title headingLevel={3}>Sub Title</Title>
         <Mobile>
           <div className="d-flex align-center">

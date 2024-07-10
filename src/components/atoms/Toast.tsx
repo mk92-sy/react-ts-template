@@ -24,7 +24,7 @@ const Toast = ({
     }
   }, [isOpen]);
   return (
-    <div className={`${css.toast} ${isOpen ? css.show : css.hide}`} {...rest}>
+    <div className={`${css.toast} ${isOpen ? css.show : css.hide} `} {...rest}>
       {children}
     </div>
   );
