@@ -8,6 +8,7 @@ import {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
+  ripple?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   // 필수 prop인 경우 Required<type>['속성명']
   // children: Required<ButtonHTMLAttributes<HTMLButtonElement>>["children"];
@@ -20,6 +21,7 @@ interface RippleProps extends HTMLAttributes<HTMLSpanElement> {
 
 const Button = ({
   size = "md",
+  ripple = true,
   children,
   className,
   onClick,
@@ -42,11 +44,13 @@ const Button = ({
   }, [ripples]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    if (ripple) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-    setRipples((prevRipples) => [...prevRipples, { x, y }]);
+      setRipples((prevRipples) => [...prevRipples, { x, y }]);
+    }
 
     if (onClick) {
       onClick(event);

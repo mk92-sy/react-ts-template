@@ -1,9 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 // 레이아웃 컴포넌트 임포트
-import MainLayout from '../components/templates/MainLayout';
-import SubLayout from '../components/templates/SubLayout';
+import MainLayout from "../components/templates/MainLayout";
+import MobileLayout from "../components/templates/MobileLayout";
 // 페이지 컴포넌트 임포트
-import { ComponentPage, DetailPage, ErrorPage, MainPage } from '../pages';
+import { MobileMainPage, DetailPage, ErrorPage, MainPage } from "../pages";
 
 const AppRoutes = () => (
   // Routes : 페이지 경로(Route)들을 감싸는 Wrapper 엘리먼트 (필수)
@@ -14,10 +14,10 @@ const AppRoutes = () => (
       <Route index path="/" element={<MainPage />} />
     </Route>
     {/* SUB PAGES */}
-    <Route element={<SubLayout />}>
-      <Route path="/component" element={<ComponentPage />} />
+    <Route element={<MobileLayout />}>
+      <Route path="/main" element={<MobileMainPage />} />
       {/* ▼ 아래처럼 동적인 경로도 가능하다 */}
-      <Route path="/detail/:id" element={<DetailPage />} />	
+      <Route path="/detail/:id" element={<DetailPage />} />
     </Route>
     {/* ERROR PAGE */}
     <Route path="*" element={<ErrorPage />} />
