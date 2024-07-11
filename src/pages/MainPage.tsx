@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { Accordion } from "../context/Accordion";
 
@@ -21,6 +21,7 @@ import {
 import { Dialog } from "../components/organisms";
 
 export default function MainPage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [inputValue1, setInputValue1] = useState("");
   const [inputValue2, setInputValue2] = useState("");
   const [isOpenDialog, setIsOpenDialog] = useState(false);
@@ -31,11 +32,96 @@ export default function MainPage() {
   const [selectedFruit, setSelectedFruit] = useState<string>("apple");
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
   return (
     //html(JSX)는 이곳에
     <>
       <div className="d-flex col gap-3" aria-hidden={isOpenDialog}>
         <Title headingLevel={3}>Sub Title</Title>
+        <p>▼ 3초후에 로딩 완료되는 UI (스켈레톤 UI)</p>
+        {/* type: single / multiple */}
+        <Accordion type="multiple">
+          {isLoading ? (
+            <>
+              <div className="skeleton" style={{ height: 50 }}>
+                <div className="box">
+                  <div className="square title"></div>
+                  <div className="square icon"></div>
+                </div>
+              </div>
+              <div className="skeleton" style={{ height: 39.59 }}>
+                <div></div>
+              </div>
+              <div className="skeleton" style={{ height: 39.59 }}>
+                <div></div>
+              </div>
+            </>
+          ) : (
+            <>
+              <AccordionItem index={0}>
+                <AccordionButton
+                  id="accordion1"
+                  aria-controls="accordion1-panel"
+                  openIcon="plus"
+                  closeIcon="dash"
+                >
+                  <Title headingLevel={4}>Accordion Title</Title>
+                </AccordionButton>
+                <AccordionPanel
+                  id="accordion1-panel"
+                  aria-labelledby="accordion1"
+                >
+                  <p style={{ padding: "0 16px 16px" }}>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable. If you are going to use a
+                    passage of Lorem Ipsum, you need to be sure there isn't
+                    anything embarrassing hidden in the middle of text. All the
+                    Lorem Ipsum generators on the Internet tend to repeat
+                    predefined chunks as necessary,
+                  </p>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem index={1}>
+                <AccordionButton>Accordion Title2</AccordionButton>
+                <AccordionPanel>
+                  <p style={{ padding: "0 16px 16px" }}>
+                    {" "}
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable. If you are going to use a
+                    passage of Lorem Ipsum, you need to be sure there isn't
+                    anything embarrassing hidden in the middle of text. All the
+                    Lorem Ipsum generators on the Internet tend to repeat
+                    predefined chunks as necessary,
+                  </p>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem index={2}>
+                <AccordionButton>Accordion Title3</AccordionButton>
+                <AccordionPanel>
+                  <p style={{ padding: "0 16px 16px" }}>
+                    There are many variations of passages of Lorem Ipsum
+                    available, but the majority have suffered alteration in some
+                    form, by injected humour, or randomised words which don't
+                    look even slightly believable. If you are going to use a
+                    passage of Lorem Ipsum, you need to be sure there isn't
+                    anything embarrassing hidden in the middle of text. All the
+                    Lorem Ipsum generators on the Internet tend to repeat
+                    predefined chunks as necessary,
+                  </p>
+                </AccordionPanel>
+              </AccordionItem>
+            </>
+          )}
+        </Accordion>
         <Mobile>
           <div className="d-flex align-center gap-2">
             <Checkbox
@@ -83,59 +169,6 @@ export default function MainPage() {
           looks reasonable. The generated Lorem Ipsum is therefore always free
           from repetition, injected humour, or non-characteristic words etc.
         </p>
-        {/* type: single / multiple */}
-        <Accordion type="multiple">
-          <AccordionItem index={0}>
-            <AccordionButton
-              id="accordion1"
-              aria-controls="accordion1-panel"
-              openIcon="plus"
-              closeIcon="dash"
-            >
-              <Title headingLevel={4}>Accordion Title</Title>
-            </AccordionButton>
-            <AccordionPanel id="accordion1-panel" aria-labelledby="accordion1">
-              <p style={{ padding: "0 16px 16px" }}>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text. All the Lorem Ipsum generators on
-                the Internet tend to repeat predefined chunks as necessary,
-              </p>
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem index={1}>
-            <AccordionButton>Accordion Title2</AccordionButton>
-            <AccordionPanel>
-              <p style={{ padding: "0 16px 16px" }}>
-                {" "}
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text. All the Lorem Ipsum generators on
-                the Internet tend to repeat predefined chunks as necessary,
-              </p>
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem index={2}>
-            <AccordionButton>Accordion Title3</AccordionButton>
-            <AccordionPanel>
-              <p style={{ padding: "0 16px 16px" }}>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text. All the Lorem Ipsum generators on
-                the Internet tend to repeat predefined chunks as necessary,
-              </p>
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
 
         <RadioGroup
           name="fruits"
