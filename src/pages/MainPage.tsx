@@ -19,6 +19,7 @@ import {
   RadioGroup,
 } from "../components/atoms";
 import { Dialog } from "../components/organisms";
+import Button2 from "../components/atoms/Button2";
 
 export default function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -196,6 +197,7 @@ export default function MainPage() {
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
+        <Button2 />
         <Label
           htmlFor="telNum"
           className="d-flex col gap-1 px-20 py-13"
