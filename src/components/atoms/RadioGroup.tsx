@@ -3,6 +3,7 @@ import { RadioGroupContext } from "../../context/RadioContext";
 import css from "./Radio.module.scss";
 
 interface RadioGroupProps {
+  direction?: string;
   name: string;
   selectedValue: string;
   onChange: (value: string) => void;
@@ -11,6 +12,7 @@ interface RadioGroupProps {
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
+  direction = "row",
   name,
   selectedValue,
   onChange,
@@ -47,7 +49,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
     <RadioGroupContext.Provider value={{ name, selectedValue, onChange }}>
       <fieldset className={css.fieldset} onKeyDown={handleKeyDown}>
         <legend className={css.legend}>{legend}</legend>
-        <div className={css.group} role="radiogroup">
+        <div className={`${css.group} ${css[direction]}`} role="radiogroup">
           {children}
         </div>
       </fieldset>

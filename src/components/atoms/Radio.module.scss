@@ -5,18 +5,22 @@
 }
 .group {
   display: flex;
-  padding: 8px 0;
-  gap: 16px;
+  padding: 0.8rem 0;
+  gap: 1.6rem;
+  > div {
+    display: flex;
+    gap: 0.5rem;
+  }
 }
 
 .wrapper {
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
 }
 .radio {
   position: relative;
   appearance: none;
-  padding-left: 20px;
+  padding-left: 2rem;
   &::before,
   &::after {
     content: "";
@@ -31,8 +35,8 @@
   }
   &::before {
     background-color: #eee;
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -41,8 +45,8 @@
   }
   &::after {
     background-color: $COLOR_PRIMARY;
-    width: 8px;
-    height: 8px;
+    width: 0.8rem;
+    height: 0.8rem;
     transform: translate(-50%, -50%) scale(0);
     -webkit-transform: translate(-50%, -50%) scale(0);
     -moz-transform: translate(-50%, -50%) scale(0);

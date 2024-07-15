@@ -8,14 +8,14 @@
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 320px;
+  max-width: 32rem;
   height: auto;
-  padding: 20px;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
   background-color: #fff;
   overflow: hidden;
   &.open {
@@ -34,14 +34,14 @@
   }
   .footer {
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 0.8rem;
+    top: 0.8rem;
     display: flex;
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
     button {
-      min-width: 24px;
-      height: 24px;
+      min-width: 2.4rem;
+      height: 2.4rem;
       padding: 0;
       font-size: 0;
       background-color: transparent;

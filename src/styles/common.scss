@@ -2,6 +2,11 @@
 @import "./reset";
 @import "./variable";
 
+html,
+body {
+  font-size: 10px;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -22,18 +27,18 @@ body.dark-mode {
 header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   border-bottom: 1px solid $COLOR_GRAY_300;
-  height: 50px;
+  height: 5rem;
 }
 
 footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 1rem;
   border-top: 1px solid $COLOR_GRAY_300;
-  height: 50px;
+  height: 5rem;
 }
 a,
 button,
@@ -46,12 +51,17 @@ button {
   border: 2px solid #fff;
 }
 
+p {
+  font-size: 1.6rem;
+  word-break: keep-all;
+}
+
 main.contents-area {
   flex: 1;
-  padding: 20px;
+  padding: 2rem;
   overflow-x: hidden;
   overflow-y: scroll;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 10rem);
 }
 
 .d-flex {
@@ -74,30 +84,30 @@ main.contents-area {
 }
 
 .px-20 {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .py-13 {
-  padding-top: 13px;
-  padding-bottom: 13px;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
 }
 
 .gap-1 {
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .gap-2 {
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .gap-3 {
-  gap: 18px;
+  gap: 1.8rem;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
   background-color: $COLOR_BLACK;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -120,14 +130,14 @@ main.contents-area {
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem 0.5rem 4.3rem;
+    padding: 0.5rem 1rem 0.5rem 5rem;
     &::before {
       content: "";
       position: absolute;
       left: 1rem;
       top: 50%;
-      width: 36px;
-      height: 36px;
+      width: 3.6rem;
+      height: 3.6rem;
       background-color: gray;
       border-radius: 30%;
       -webkit-border-radius: 30%;
@@ -146,14 +156,14 @@ main.contents-area {
     }
   }
   &.open {
-    height: 70px;
+    height: 7rem;
   }
 }
 
 .sticky-header {
   position: sticky;
   top: 0;
-  min-height: 60px;
+  min-height: 6rem;
   background-color: #fff;
   z-index: 2;
   display: flex;
@@ -168,9 +178,9 @@ main.contents-area {
 .swiper-slide {
   width: 100%;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   background: #eee;
-  min-height: 240px;
+  min-height: 24rem;
   border: 1px solid #eee;
   /*Centerslidetextvertically*/
   display: flex;
@@ -178,12 +188,12 @@ main.contents-area {
   align-items: center;
 }
 .swiper-pagination-bullet-active {
-  width: 20px;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  width: 2rem;
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
 }
 
 .swiper-slide img {
@@ -218,11 +228,11 @@ main.contents-area {
   width: 100%;
   background-color: rgba(146, 211, 255, 0.699);
   padding: 1rem;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
 }
 
 .skeleton {
@@ -230,7 +240,7 @@ main.contents-area {
   overflow: hidden;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 4rem;
   background-color: $COLOR_GRAY_300;
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
@@ -252,23 +262,23 @@ main.contents-area {
     -ms-border-radius: 0.2rem;
     -o-border-radius: 0.2rem;
     &.title {
-      width: 150px;
-      height: 21px;
+      width: 15rem;
+      height: 2.1rem;
     }
     &.icon {
-      width: 10px;
-      height: 10px;
+      width: 1rem;
+      height: 1rem;
     }
   }
   &::after {
     position: absolute;
     content: "";
-    width: 40px;
+    width: 4rem;
     height: 50vh;
     background-color: #fff;
     opacity: 0.4;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+    filter: blur(0.8rem);
+    -webkit-filter: blur(0.8rem);
     animation: 2s ease-in-out infinite shimmer;
     -webkit-animation: 2s ease-in-out infinite shimmer;
   }

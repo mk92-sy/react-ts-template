@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
-import { Accordion } from "../context/Accordion";
+import { Accordion } from "context/Accordion";
 
-import { Mobile } from "../styles/mediaQuery";
+import { Mobile } from "styles/mediaQuery";
 import {
   AccordionButton,
   AccordionItem,
@@ -17,9 +17,10 @@ import {
   Toast,
   Radio,
   RadioGroup,
-} from "../components/atoms";
-import { Dialog } from "../components/organisms";
-import Button2 from "../components/atoms/Button2";
+} from "components/atoms";
+import { Dialog } from "components/organisms";
+import { useDarkMode } from "context/DarakModeContext";
+import CheckboxGroup from "components/atoms/CheckboxGroup";
 
 export default function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,10 +30,42 @@ export default function MainPage() {
   const [isOpenToast, setIsOpenToast] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
+  const [isChecked3, setIsChecked3] = useState(false);
+  const [isChecked4, setIsChecked4] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [selectedFruit, setSelectedFruit] = useState<string>("apple");
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
+
+  const { darkMode, toggleDarkMode } = useDarkMode();
+
+  const checkboxData = [
+    {
+      id: "mobileCheckbox1",
+      checked: isChecked1,
+      onChange: setIsChecked1,
+      label: "labelText1",
+    },
+    {
+      id: "mobileCheckbox2",
+      checked: isChecked2,
+      onChange: setIsChecked2,
+      label: "labelText2",
+    },
+  ];
+
+  const radioData = [
+    {
+      id: "apple-option",
+      value: "apple",
+      label: "Apple",
+    },
+    {
+      id: "banana-option",
+      value: "banana",
+      label: "Banana",
+    },
+  ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -123,38 +156,56 @@ export default function MainPage() {
             </>
           )}
         </Accordion>
-        <Mobile>
-          <div className="d-flex align-center gap-2">
-            <Checkbox
-              id="mobileCheckbox"
-              checked={isChecked1}
-              onChange={(e) => {
-                setIsChecked1(e.target.checked);
-              }}
-            />
-            <Label htmlFor="mobileCheckbox">
-              모바일에서만 나타나는 체크박스
-            </Label>
-          </div>
-        </Mobile>
+        {/* S: 체크박스 그룹 */}
+        <CheckboxGroup direction="column">
+          {checkboxData.map((item) => (
+            <div key={item.id}>
+              <Checkbox
+                id={item.id}
+                checked={item.checked}
+                onChange={(e) => {
+                  item.onChange(e.target.checked);
+                }}
+              />
+              <Label htmlFor={item.id}>{item.label}</Label>
+            </div>
+          ))}
+        </CheckboxGroup>
+        {/* E: 체크박스 그룹 */}
+
+        {/* S: 라디오 그룹 */}
+        <RadioGroup
+          direction="column"
+          name="fruits"
+          selectedValue={selectedFruit}
+          onChange={setSelectedFruit}
+          legend="choice your fruit"
+        >
+          {radioData.map(({ id, value, label }) => (
+            <div key={id}>
+              <Radio id={id} value={value} />
+              <Label htmlFor={id}>{label}</Label>
+            </div>
+          ))}
+        </RadioGroup>
         <Switch
-          checked={isChecked2}
+          checked={isChecked3}
           onChange={(e) => {
-            setIsChecked2(e.target.checked);
+            setIsChecked3(e.target.checked);
           }}
         />
+        {/* E: 라디오 그룹 */}
+
         <p>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text. All
-          the Lorem Ipsum generators on the Internet tend to repeat predefined
-          chunks as necessary, making this the first true generator on the
-          Internet. It uses a dictionary of over 200 Latin words, combined with
-          a handful of model sentence structures, to generate Lorem Ipsum which
-          looks reasonable. The generated Lorem Ipsum is therefore always free
-          from repetition, injected humour, or non-characteristic words etc.
+          대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을
+          기본으로 한다. 헌법개정은 국회재적의원 과반수 또는 대통령의 발의로
+          제안된다. 대법관의 임기는 6년으로 하며, 법률이 정하는 바에 의하여
+          연임할 수 있다. 외국인은 국제법과 조약이 정하는 바에 의하여 그 지위가
+          보장된다. 국회의 회의는 공개한다. 다만, 출석의원 과반수의 찬성이
+          있거나 의장이 국가의 안전보장을 위하여 필요하다고 인정할 때에는
+          공개하지 아니할 수 있다. 국무회의는 정부의 권한에 속하는 중요한 정책을
+          심의한다. 대법원장의 임기는 6년으로 하며, 중임할 수 없다. 국회에서
+          의결된 법률안은 정부에 이송되어 15일 이내에 대통령이 공포한다.
         </p>
         <br />
         <p>
@@ -170,16 +221,6 @@ export default function MainPage() {
           looks reasonable. The generated Lorem Ipsum is therefore always free
           from repetition, injected humour, or non-characteristic words etc.
         </p>
-
-        <RadioGroup
-          name="fruits"
-          selectedValue={selectedFruit}
-          onChange={setSelectedFruit}
-          legend="choice your fruit"
-        >
-          <Radio id="apple-option" value="apple" label="Apple" />
-          <Radio id="banana-option" value="banana" label="Banana" />
-        </RadioGroup>
 
         {/* ▼ 모든 JSX 문법 사용가능(ex: onClick, disabled...) */}
         <Button
@@ -197,7 +238,13 @@ export default function MainPage() {
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
-        <Button2 />
+        <Button
+          onClick={() => {
+            toggleDarkMode();
+          }}
+        >
+          DarkMode : {darkMode ? "dark" : "light"}
+        </Button>
         <Label
           htmlFor="telNum"
           className="d-flex col gap-1 px-20 py-13"

@@ -1,17 +1,35 @@
 @import "../../styles/variable";
 
+.group {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  &.col {
+    flex-direction: column;
+    > div {
+      align-items: start;
+      justify-content: start;
+    }
+  }
+}
 .checkbox {
   appearance: none;
   position: relative;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
   background-color: $COLOR_GRAY_100;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
   cursor: pointer;
   &:checked {
     background-color: $COLOR_PRIMARY;
@@ -20,8 +38,8 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 20px;
-      height: 20px;
+      width: 2rem;
+      height: 2rem;
       background-image: url(../../assets/icons/check.svg);
       background-position: center;
       background-repeat: no-repeat;

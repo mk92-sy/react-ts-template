@@ -3,18 +3,18 @@
 .item {
   display: block;
   border: 1px solid $COLOR_GRAY_300;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
   overflow: hidden;
 }
 
 .button {
   background-color: $COLOR_WHITE;
   width: 100%;
-  padding: 10px 16px;
+  padding: 1rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

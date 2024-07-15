@@ -1,15 +1,13 @@
 .wrapper {
-  line-height: 20px;
   &.active,
   &:active {
     border-color: #000;
   }
   .label {
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    line-height: 20px;
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
   }
 }

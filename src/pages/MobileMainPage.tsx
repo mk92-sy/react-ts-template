@@ -1,5 +1,5 @@
-import MainSwiper from "../components/organisms/swiper/MainSwiper";
-import SubSwiper from "../components/organisms/swiper/SubSwiper";
+import MainSwiper from "components/organisms/swiper/MainSwiper";
+import SubSwiper from "components/organisms/swiper/SubSwiper";
 
 export default function MobileMainPage() {
   return (
