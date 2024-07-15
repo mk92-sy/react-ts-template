@@ -1,11 +1,9 @@
-@import "../../styles/variable";
-
 .switch {
   appearance: none;
   position: relative;
   width: 4.8rem;
   height: 2.8rem;
-  background-color: $COLOR_GRAY_800;
+  background-color: var(--COLOR_GRAY_800);
   border-radius: 1.4rem;
   -webkit-border-radius: 1.4rem;
   -moz-border-radius: 1.4rem;
@@ -24,7 +22,7 @@
     left: 0.4rem;
     width: 2rem;
     height: 2rem;
-    background-color: $COLOR_WHITE;
+    background-color: var(--COLOR_WHITE);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -37,7 +35,7 @@
     -o-transition: transform 0.3s ease-in-out;
   }
   &:checked {
-    background-color: $COLOR_PRIMARY;
+    background-color: var(--COLOR_PRIMARY);
     &::before {
       transform: translateX(2rem);
       -webkit-transform: translateX(2rem);

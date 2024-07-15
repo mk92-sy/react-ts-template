@@ -1,10 +1,8 @@
-@import "../../styles/variable";
-
 .btn {
   position: relative;
   width: 100%;
-  background-color: $COLOR_PRIMARY;
-  color: $COLOR_WHITE;
+  background-color: var(--COLOR_PRIMARY);
+  color: var(--COLOR_WHITE);
   font-weight: 500;
   font-size: 1.6rem;
   border: 0;

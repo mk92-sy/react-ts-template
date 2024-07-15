@@ -12,10 +12,12 @@ const DarkModeContext = createContext<DarkModeContextType | undefined>(
 const updateDarkMode = (darkMode: boolean) => {
   if (darkMode) {
     localStorage.theme = "dark";
-    document.documentElement.classList.add("dark"); // html 클래스 추가
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
   } else {
     localStorage.theme = "light";
     document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
   }
 };
 

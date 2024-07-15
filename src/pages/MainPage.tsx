@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 
 import { Accordion } from "context/Accordion";
 
-import { Mobile } from "styles/mediaQuery";
 import {
   AccordionButton,
   AccordionItem,
@@ -188,13 +187,20 @@ export default function MainPage() {
             </div>
           ))}
         </RadioGroup>
-        <Switch
-          checked={isChecked3}
-          onChange={(e) => {
-            setIsChecked3(e.target.checked);
-          }}
-        />
         {/* E: 라디오 그룹 */}
+
+        <div className="d-flex align-center gap-2">
+          <Switch
+            id="darkModeToggle"
+            checked={darkMode}
+            onChange={() => {
+              toggleDarkMode();
+            }}
+          />
+          <Label htmlFor="darkModeToggle">
+            다크모드 {darkMode ? "ON" : "OFF"}{" "}
+          </Label>
+        </div>
 
         <p>
           대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을
@@ -237,13 +243,6 @@ export default function MainPage() {
           disabled={isOpenToast}
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
-        </Button>
-        <Button
-          onClick={() => {
-            toggleDarkMode();
-          }}
-        >
-          DarkMode : {darkMode ? "dark" : "light"}
         </Button>
         <Label
           htmlFor="telNum"
