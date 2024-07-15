@@ -12,7 +12,6 @@ export default function StickyBanner() {
           편리하게 이용해보세요! ({isOpen ? "열림" : "닫힘"})
         </p>
         <Button
-          ripple={false}
           onClick={() => setIsOpen(false)}
           style={{ backgroundColor: "transparent", width: 24, height: 24 }}
         >
