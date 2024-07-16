@@ -40,11 +40,9 @@
     -ms-transform: translateY(100%);
     -o-transform: translateY(100%);
   }
-  .header {
-    h2 {
-      display: inline-block;
-      font-size: 2rem;
-    }
+  .title {
+    display: inline-block;
+    font-size: 2rem;
   }
   .contents {
     font-size: 1.6rem;

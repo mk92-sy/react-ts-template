@@ -6,14 +6,13 @@ import Dimm from "../atoms/Dimm";
 
 interface BottomSheetProps extends HTMLAttributes<HTMLElement> {
   isOpen: boolean;
-  flex?: string;
   title: string;
   onClose: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 function BottomSheet({
   isOpen = false,
-  flex = "0.7",
+  title,
   children,
   onClose,
   ...rest
@@ -31,6 +30,9 @@ function BottomSheet({
           className={`${css.wrapper} ${isOpen ? css.open : css.close}`}
           {...rest}
         >
+          <div className={css.title} tabIndex={0}>
+            {title}
+          </div>
           <div className={css.contents} tabIndex={0}>
             {children}
           </div>
