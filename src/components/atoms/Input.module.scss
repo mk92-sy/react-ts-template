@@ -7,9 +7,9 @@
   height: 3.2rem;
   border: 0;
   outline: 0;
+  background-color: transparent;
   &[type="text"] {
     &:focus {
-      background-color: #f5f5f5;
       .underline {
         position: absolute;
         left: 0;

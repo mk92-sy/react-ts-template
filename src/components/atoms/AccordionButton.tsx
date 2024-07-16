@@ -2,7 +2,6 @@
 import React, { ButtonHTMLAttributes, useRef } from "react";
 import css from "./Accordion.module.scss";
 import Icon from "./Icon";
-import { useAccordion } from "../../context/AccordionContext";
 
 interface AccordionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isOpen?: boolean;

@@ -1,13 +1,17 @@
 .wrapper {
-  &.active,
-  &:active {
-    border-color: #000;
-  }
   .label {
+    font-size: 1.6rem;
+  }
+  &.line {
+    border: 2px solid var(--COLOR_GRAY_700);
     border-radius: 0.8rem;
     -webkit-border-radius: 0.8rem;
     -moz-border-radius: 0.8rem;
     -ms-border-radius: 0.8rem;
     -o-border-radius: 0.8rem;
+    &.active,
+    &:active {
+      border: 2px solid var(--COLOR_DANGER);
+    }
   }
 }

@@ -10,7 +10,8 @@
 }
 
 .button {
-  background-color: var(--COLOR_WHITE);
+  background-color: var(--COLOR_GRAY_50);
+  color: var(--COLOR_GRAY_800);
   width: 100%;
   padding: 1rem 1.6rem;
   display: flex;
@@ -22,6 +23,10 @@
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  font-size: 1.4rem;
+  h4 {
+    font-size: 1.4rem;
+  }
 }
 
 .panel {

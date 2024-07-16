@@ -244,13 +244,7 @@ export default function MainPage() {
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
-        <Label
-          htmlFor="telNum"
-          className="d-flex col gap-1 px-20 py-13"
-          style={{
-            border: isFocus ? "2px solid #000" : "2px solid #eee",
-          }}
-        >
+        <Label line htmlFor="telNum" className="d-flex col gap-1 px-20 py-13">
           <span>Birth</span>
           <div className="d-flex align-center">
             <Input

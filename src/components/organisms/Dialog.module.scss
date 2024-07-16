@@ -16,7 +16,7 @@
   -moz-border-radius: 0.8rem;
   -ms-border-radius: 0.8rem;
   -o-border-radius: 0.8rem;
-  background-color: #fff;
+  background-color: var(--COLOR_GRAY_50);
   overflow: hidden;
   &.open {
     z-index: 9999;
@@ -29,8 +29,12 @@
   .header {
     h2 {
       display: inline-block;
-      font-size: 1.3rem;
+      font-size: 2rem;
     }
+  }
+  .contents {
+    font-size: 1.6rem;
+    padding: 1rem 0;
   }
   .footer {
     position: absolute;
