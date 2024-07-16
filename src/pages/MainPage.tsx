@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
-import { Accordion } from "context/Accordion";
-
 import {
+  Accordion,
   AccordionButton,
   AccordionItem,
   AccordionPanel,
@@ -20,6 +19,8 @@ import {
 import { Dialog } from "components/organisms";
 import { useDarkMode } from "context/DarakModeContext";
 import CheckboxGroup from "components/atoms/CheckboxGroup";
+import SelectItem from "components/atoms/SelectItem";
+import Select from "components/atoms/Select";
 
 export default function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +32,7 @@ export default function MainPage() {
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
   const [isChecked4, setIsChecked4] = useState(false);
-  const [isFocus, setIsFocus] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
   const [selectedFruit, setSelectedFruit] = useState<string>("apple");
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
@@ -71,16 +72,18 @@ export default function MainPage() {
       setIsLoading(false);
     }, 3000);
   }, []);
+
   return (
     //html(JSX)는 이곳에
     <>
       <div className="d-flex col gap-3" aria-hidden={isOpenDialog}>
         <Title headingLevel={3}>Sub Title</Title>
         <p>▼ 3초후에 로딩 완료되는 UI (스켈레톤 UI)</p>
-        {/* type: single / multiple */}
+        {/* S: 아코디언 컴포넌트 (type: single / multiple) */}
         <Accordion type="multiple">
           {isLoading ? (
             <>
+              {/* S: 스켈레톤 UI */}
               <div className="skeleton" style={{ height: 50 }}>
                 <div className="box">
                   <div className="square title"></div>
@@ -93,6 +96,7 @@ export default function MainPage() {
               <div className="skeleton" style={{ height: 39.59 }}>
                 <div></div>
               </div>
+              {/* E: 스켈레톤 UI */}
             </>
           ) : (
             <>
@@ -155,6 +159,8 @@ export default function MainPage() {
             </>
           )}
         </Accordion>
+        {/* E: 아코디언 컴포넌트 */}
+
         {/* S: 체크박스 그룹 */}
         <CheckboxGroup direction="column">
           {checkboxData.map((item) => (
@@ -189,6 +195,7 @@ export default function MainPage() {
         </RadioGroup>
         {/* E: 라디오 그룹 */}
 
+        {/* S: 스위치 컴포넌트 */}
         <div className="d-flex align-center gap-2">
           <Switch
             id="darkModeToggle"
@@ -201,6 +208,25 @@ export default function MainPage() {
             다크모드 {darkMode ? "ON" : "OFF"}{" "}
           </Label>
         </div>
+        {/* E: 스위치 컴포넌트 */}
+
+        {/* S: 셀렉트 컴포넌트 */}
+        <Select
+          placeholder="Select an option"
+          value={selectedValue}
+          onChange={setSelectedValue}
+        >
+          <SelectItem value="option1" index={0}>
+            Option 1
+          </SelectItem>
+          <SelectItem value="option2" index={1}>
+            Option 2
+          </SelectItem>
+          <SelectItem value="option3" index={2}>
+            Option 3
+          </SelectItem>
+        </Select>
+        {/* E: 셀렉트 컴포넌트 */}
 
         <p>
           대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을
@@ -228,7 +254,7 @@ export default function MainPage() {
           from repetition, injected humour, or non-characteristic words etc.
         </p>
 
-        {/* ▼ 모든 JSX 문법 사용가능(ex: onClick, disabled...) */}
+        {/* S: 다이얼로그 토글 버튼 */}
         <Button
           onClick={() => {
             setIsOpenDialog(!isOpenDialog);
@@ -236,6 +262,9 @@ export default function MainPage() {
         >
           {isOpenDialog ? "Close" : "Open"} Dialog
         </Button>
+        {/* E: 다이얼로그 토글 버튼 */}
+
+        {/* S: 토스트 버튼 */}
         <Button
           onClick={() => {
             setIsOpenToast(!isOpenToast);
@@ -244,6 +273,9 @@ export default function MainPage() {
         >
           {isOpenToast ? <Icon type="spinner" /> : "Show Toast (3s)"}
         </Button>
+        {/* E: 토스트 버튼 */}
+
+        {/* S: 라벨 + 인풋 조합 */}
         <Label line htmlFor="telNum" className="d-flex col gap-1 px-20 py-13">
           <span>Birth</span>
           <div className="d-flex align-center">
@@ -255,12 +287,6 @@ export default function MainPage() {
               onKeyDown={(evt) =>
                 ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
               }
-              onFocus={() => {
-                setIsFocus(true);
-              }}
-              onBlur={() => {
-                setIsFocus(false);
-              }}
               maxLength={6}
               value={inputValue1}
               style={{ minWidth: "calc(50% - 14px)" }}
@@ -281,12 +307,6 @@ export default function MainPage() {
                 onKeyDown={(evt) =>
                   ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
                 }
-                onFocus={() => {
-                  setIsFocus(true);
-                }}
-                onBlur={() => {
-                  setIsFocus(false);
-                }}
                 maxLength={1}
                 value={inputValue2}
                 onChange={(e) => {
@@ -304,7 +324,10 @@ export default function MainPage() {
             </div>
           </div>
         </Label>
+        {/* E: 라벨 + 인풋 조합 */}
       </div>
+
+      {/* S: 다이얼로그 컴포넌트 */}
       <Dialog
         isOpen={isOpenDialog}
         type="alert"
@@ -315,9 +338,13 @@ export default function MainPage() {
           setIsOpenDialog(false);
         }}
       />
+      {/* E: 다이얼로그 컴포넌트 */}
+
+      {/* S: 토스트 컴포넌트 */}
       <Toast isOpen={isOpenToast} setIsOpen={setIsOpenToast} timer={3000}>
         toast text
       </Toast>
+      {/* E: 토스트 컴포넌트 */}
     </>
   );
 }

@@ -48,7 +48,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   return (
     <RadioGroupContext.Provider value={{ name, selectedValue, onChange }}>
       <fieldset className={css.fieldset} onKeyDown={handleKeyDown}>
-        <legend className={css.legend}>{legend}</legend>
+        {legend && <legend className={css.legend}>{legend}</legend>}
         <div className={`${css.group} ${css[direction]}`} role="radiogroup">
           {children}
         </div>

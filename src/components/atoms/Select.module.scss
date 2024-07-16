@@ -1,0 +1,54 @@
+.select {
+  position: relative;
+  width: 20rem;
+  .combobox {
+    border: 1px solid var(--COLOR_GRAY_400);
+    border-radius: 0.4rem;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    background-color: var(--COLOR_WHITE);
+    color: var(--COLOR_GRAY_700);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+    &:focus {
+      outline: none;
+      border-color: var(--COLOR_PRIMARY);
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+
+    &::after {
+      content: "▼";
+      font-size: 1.2rem;
+    }
+  }
+
+  .placeholder {
+    font-size: 1.6rem;
+    color: var(--COLOR_GRAY_700);
+  }
+
+  .list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: var(--COLOR_WHITE);
+    padding: 0.8rem 1.2rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+}
+.selected {
+  background-color: var(--COLOR_PRIMARY);
+  color: var(--COLOR_WHITE);
+}
+.focused {
+  background-color: var(--COLOR_GRAY_100);
+  color: var(--COLOR_GRAY_900);
+}
