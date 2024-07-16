@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-
 import {
   Accordion,
   AccordionButton,
@@ -16,11 +15,14 @@ import {
   Radio,
   RadioGroup,
 } from "components/atoms";
-import { Dialog } from "components/organisms";
+import { BottomSheet, Dialog } from "components/organisms";
 import { useDarkMode } from "context/DarakModeContext";
 import CheckboxGroup from "components/atoms/CheckboxGroup";
 import SelectItem from "components/atoms/SelectItem";
 import Select from "components/atoms/Select";
+import { useNavigate } from "react-router-dom";
+import BarChart from "components/organisms/BarChart";
+import DoughnutChart from "components/organisms/DonutChart";
 
 export default function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,15 +32,14 @@ export default function MainPage() {
   const [isOpenToast, setIsOpenToast] = useState(false);
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
-  const [isChecked3, setIsChecked3] = useState(false);
-  const [isChecked4, setIsChecked4] = useState(false);
+  const [isOpenBottomSheet, setIsOpenBottomSheet] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedFruit, setSelectedFruit] = useState<string>("apple");
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
 
   const { darkMode, toggleDarkMode } = useDarkMode();
-
+  const navigate = useNavigate()
   const checkboxData = [
     {
       id: "mobileCheckbox1",
@@ -78,6 +79,7 @@ export default function MainPage() {
     <>
       <div className="d-flex col gap-3" aria-hidden={isOpenDialog}>
         <Title headingLevel={3}>Sub Title</Title>
+        
         <p>▼ 3초후에 로딩 완료되는 UI (스켈레톤 UI)</p>
         {/* S: 아코디언 컴포넌트 (type: single / multiple) */}
         <Accordion type="multiple">
@@ -228,6 +230,49 @@ export default function MainPage() {
         </Select>
         {/* E: 셀렉트 컴포넌트 */}
 
+        {/* S: 바텀시트 토글 버튼 */}
+        <Button
+          onClick={() => {
+            setIsOpenBottomSheet(true);
+          }}
+        >
+          BottomSheep Open
+        </Button>
+        {/* S: 바텀시트 토글 버튼 */}
+
+        {/* S: 페이지 이동 버튼 */}
+        <Button
+          onClick={() => {
+            navigate("/main")
+          }}
+        >
+          Go to Next Page
+        </Button>
+        {/* S: 바텀시트 토글 버튼 */}
+        
+        {/* S: 차트 샘플 */}
+        <BarChart 
+          labels={["January", "February", "March", "April", "May", "June", "July"]} 
+          datasets={[
+            {
+              label: "분류 1",
+              data: [1, 2, 3, 4, 5, 6, 7],
+              backgroundColor: `${
+                darkMode ? "rgba(255, 179, 195, 0.5)" : "rgba(255, 99, 132, 0.5)"
+              }`,
+            },
+            {
+              label: "분류 2",
+              data: [2, 3, 4, 5, 4, 7, 8],
+              backgroundColor: `${
+                darkMode ? "rgba(152, 214, 255, 0.5)" : "rgba(53, 162, 235, 0.5)"
+              }`,
+            },
+          ]
+        }/>
+        <DoughnutChart percentage={80} />
+        {/* E: 차트 샘플 */}
+
         <p>
           대한민국의 경제질서는 개인과 기업의 경제상의 자유와 창의를 존중함을
           기본으로 한다. 헌법개정은 국회재적의원 과반수 또는 대통령의 발의로
@@ -345,6 +390,18 @@ export default function MainPage() {
         toast text
       </Toast>
       {/* E: 토스트 컴포넌트 */}
+
+      {/* S: 바텀시트 컴포넌트 */}
+      <BottomSheet
+        isOpen={isOpenBottomSheet}
+        title="바텀시트"
+        onClose={() => {
+          setIsOpenBottomSheet(false);
+        }}
+      >
+        바텀시트 내 컨텐츠는 여기에 작성
+      </BottomSheet>
+      {/* E: 바텀시트 컴포넌트 */}
     </>
   );
 }

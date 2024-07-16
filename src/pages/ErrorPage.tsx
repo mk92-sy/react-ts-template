@@ -1,8 +1,13 @@
-const ErrorPage = () => {
-  return (
-    //html(JSX)는 이곳에
-    <div>에러페이지</div>
-  )
-}
+import { forwardRef, HTMLProps } from "react";
 
-export default ErrorPage
+const ErrorPage = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+  (props, ref) => {
+    return (
+      <div className="page" ref={ref}>
+        에러페이지
+      </div>
+    );
+  }
+);
+
+export default ErrorPage;
