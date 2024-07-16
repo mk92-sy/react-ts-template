@@ -28,17 +28,20 @@ function Select({ children, placeholder, value, onChange }: SelectProps) {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    
     switch (e.key) {
       case "ArrowDown":
+        e.preventDefault();
         setFocusedIndex((prevIndex) =>
           Math.min(prevIndex + 1, React.Children.count(children) - 1)
         );
         break;
       case "ArrowUp":
+        e.preventDefault();
         setFocusedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
         break;
       case "Enter":
+        e.preventDefault();
         if (isOpen && focusedIndex >= 0) {
           const childArray = React.Children.toArray(children);
           const selectedChild = childArray[focusedIndex] as React.ReactElement;
@@ -50,6 +53,7 @@ function Select({ children, placeholder, value, onChange }: SelectProps) {
         }
         break;
       case "Escape":
+        e.preventDefault();
         setIsOpen(false);
         setFocusedIndex(-1);
         break;
