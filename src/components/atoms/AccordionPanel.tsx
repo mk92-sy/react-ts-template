@@ -8,11 +8,11 @@ interface AccordionPanelProps extends HTMLAttributes<HTMLElement> {
   isOpen?: boolean;
 }
 
-export const AccordionPanel: React.FC<AccordionPanelProps> = ({
+export const AccordionPanel = ({
   className,
   children,
   isOpen,
-}) => {
+}: AccordionPanelProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [totalHeight, setTotalHeight] = useState<any>(0);
 

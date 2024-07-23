@@ -6,7 +6,7 @@ interface MediaQueryProps {
 }
 
 export const Desktop = ({ children }: MediaQueryProps) => {
-  const isDesktop = useMediaQuery({ minWidth: 1024 });
+  const isDesktop = useMediaQuery({ minWidth: 1025 });
   return isDesktop ? <>{children}</> : null;
 };
 

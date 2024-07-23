@@ -15,10 +15,10 @@ interface AccordionProviderProps {
   type: "single" | "multiple";
 }
 
-export const AccordionProvider: React.FC<AccordionProviderProps> = ({
+export const AccordionProvider = ({
   children,
   type,
-}) => {
+}: AccordionProviderProps) => {
   const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
 
   const value = {

@@ -11,13 +11,13 @@ interface AccordionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   toggleItem?: () => void;
 }
 
-export const AccordionButton: React.FC<AccordionButtonProps> = ({
+export const AccordionButton = ({
   isOpen,
   openIcon,
   closeIcon,
   children,
   toggleItem,
-}) => {
+}: AccordionButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   return (
     <button

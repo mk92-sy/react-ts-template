@@ -8,7 +8,7 @@ interface RadioProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-const Radio: React.FC<RadioProps> = ({ value, id, className }) => {
+const Radio = ({ value, id, className }: RadioProps) => {
   const context = useContext(RadioGroupContext);
   if (!context) {
     throw new Error("Radio must be used within a RadioGroup");

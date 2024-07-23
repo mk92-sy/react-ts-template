@@ -7,10 +7,7 @@ interface AccordionItemProps {
   index: number;
 }
 
-export const AccordionItem: React.FC<PropsWithChildren<AccordionItemProps>> = ({
-  children,
-  index,
-}) => {
+export const AccordionItem = ({ children, index }: AccordionItemProps) => {
   const { activeIndexes, setActiveIndexes, type } = useAccordion();
   const isOpen = activeIndexes.includes(index);
 

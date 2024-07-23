@@ -11,14 +11,14 @@ interface RadioGroupProps {
   legend?: string;
 }
 
-const RadioGroup: React.FC<RadioGroupProps> = ({
+const RadioGroup = ({
   direction = "row",
   name,
   selectedValue,
   onChange,
   children,
   legend,
-}) => {
+}: RadioGroupProps) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLFieldSetElement>) => {
     if (event.key === "ArrowDown" || event.key === "ArrowRight") {
       event.preventDefault();
