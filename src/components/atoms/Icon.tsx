@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import css from "./Icon.module.scss";
+import css from "./Icon.module.css";
 
 interface IconProps extends HTMLAttributes<HTMLButtonElement> {
   type: "plus" | "dash" | "spinner" | "close";

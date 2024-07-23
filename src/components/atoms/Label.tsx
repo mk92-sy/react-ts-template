@@ -1,4 +1,4 @@
-import css from "./Label.module.scss";
+import css from "./Label.module.css";
 import { LabelHTMLAttributes, useEffect, useRef, useState } from "react";
 
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
@@ -51,10 +51,13 @@ const Label = ({
       document.removeEventListener("focus", checkActiveElement, true);
       document.removeEventListener("blur", handleBlur, true);
     };
+    // eslint-disable-next-line
   }, []);
   return (
     <div
-      className={`${css.wrapper} ${line ? css.line : ""} ${isActive ? css.active : ""}`}
+      className={`${css.wrapper} ${line ? css.line : ""} ${
+        isActive ? css.active : ""
+      }`}
     >
       <label
         htmlFor={htmlFor}

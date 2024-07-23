@@ -1,6 +1,6 @@
 // AccordionButton.tsx
 import React, { ButtonHTMLAttributes, useRef } from "react";
-import css from "./Accordion.module.scss";
+import css from "./Accordion.module.css";
 import Icon from "./Icon";
 
 interface AccordionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

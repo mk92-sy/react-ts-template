@@ -1,4 +1,4 @@
-import css from "./Toast.module.scss";
+import css from "./Toast.module.css";
 import { HTMLAttributes, useEffect } from "react";
 
 interface ToastProps extends HTMLAttributes<HTMLDivElement> {
@@ -22,6 +22,7 @@ const Toast = ({
         setIsOpen(false);
       }, timer);
     }
+    // eslint-disable-next-line
   }, [isOpen]);
   return (
     <div className={`${css.toast} ${isOpen ? css.show : css.hide} `} {...rest}>

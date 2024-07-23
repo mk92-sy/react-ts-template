@@ -1,4 +1,4 @@
-import css from "./Dimm.module.scss";
+import css from "./Dimm.module.css";
 import { HTMLAttributes } from "react";
 interface DimmProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;

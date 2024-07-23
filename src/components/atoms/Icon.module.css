@@ -70,7 +70,6 @@
   }
 }
 
-// SVG animation.
 @keyframes svg-animation {
   0% {
     transform: rotateZ(0deg);
@@ -80,7 +79,6 @@
   }
 }
 
-// Circle animation.
 @keyframes circle-animation {
   0%,
   25% {

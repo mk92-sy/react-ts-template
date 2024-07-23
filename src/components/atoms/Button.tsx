@@ -1,5 +1,5 @@
 import { useDarkMode } from "context/DarakModeContext";
-import css from "./Button.module.scss";
+import css from "./Button.module.css";
 import { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,7 +10,9 @@ const Button = ({ size = "md", children, className, ...rest }: ButtonProps) => {
   const { darkMode } = useDarkMode();
   return (
     <button
-      className={`${css.btn} ${css[size]} ${darkMode ? css.dark : ""} ${className || ""}`}
+      className={`${css.btn} ${css[size]} ${darkMode ? css.dark : ""} ${
+        className || ""
+      }`}
       {...rest}
     >
       {children}

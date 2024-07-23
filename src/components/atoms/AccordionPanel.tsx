@@ -1,5 +1,5 @@
 // AccordionPanel.tsx
-import css from "./Accordion.module.scss";
+import css from "./Accordion.module.css";
 import React, { useEffect, useRef, useState, HTMLAttributes } from "react";
 
 interface AccordionPanelProps extends HTMLAttributes<HTMLElement> {
@@ -30,6 +30,7 @@ export const AccordionPanel = ({
     return () => {
       window.removeEventListener("resize", calculateHeight);
     };
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export const AccordionPanel = ({
         }, 100);
       }
     }
+    // eslint-disable-next-line
   }, [isOpen]);
 
   return (

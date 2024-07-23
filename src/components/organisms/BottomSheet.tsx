@@ -1,7 +1,7 @@
 import { HTMLAttributes, useRef } from "react";
 import { useFocusTrap } from "../../hooks/useFocus";
 import Button from "../atoms/Button";
-import css from "./BottomSheet.module.scss";
+import css from "./BottomSheet.module.css";
 import Dimm from "../atoms/Dimm";
 
 interface BottomSheetProps extends HTMLAttributes<HTMLElement> {
