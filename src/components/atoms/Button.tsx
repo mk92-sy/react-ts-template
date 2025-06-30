@@ -1,5 +1,5 @@
 import { useDarkMode } from "context/DarakModeContext";
-import css from "./Button.module.css";
+import css from "./Button.module.scss";
 import { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

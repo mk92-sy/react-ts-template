@@ -1,5 +1,5 @@
 // AccordionPanel.tsx
-import css from "./Accordion.module.css";
+import css from "./Accordion.module.scss";
 import React, { useEffect, useRef, useState, HTMLAttributes } from "react";
 
 interface AccordionPanelProps extends HTMLAttributes<HTMLElement> {

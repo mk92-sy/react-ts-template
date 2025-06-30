@@ -1,4 +1,4 @@
-import css from "./Toast.module.css";
+import css from "./Toast.module.scss";
 import { HTMLAttributes, useEffect } from "react";
 
 interface ToastProps extends HTMLAttributes<HTMLDivElement> {

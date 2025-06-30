@@ -1,4 +1,4 @@
-import css from "./Label.module.css";
+import css from "./Label.module.scss";
 import { LabelHTMLAttributes, useEffect, useRef, useState } from "react";
 
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {

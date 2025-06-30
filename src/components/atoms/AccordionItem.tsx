@@ -1,6 +1,6 @@
 import React from "react";
 import { useAccordion } from "../../context/AccordionContext";
-import css from "./Accordion.module.css";
+import css from "./Accordion.module.scss";
 
 interface AccordionItemProps {
   children: React.ReactNode;

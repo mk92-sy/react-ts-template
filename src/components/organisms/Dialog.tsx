@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useFocusTrap } from "../../hooks/useFocus";
 import Button from "../atoms/Button";
-import css from "./Dialog.module.css";
+import css from "./Dialog.module.scss";
 import Dimm from "../atoms/Dimm";
 
 interface DialogProps {

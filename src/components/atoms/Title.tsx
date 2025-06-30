@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react";
-import styles from "./Title.module.css";
+import styles from "./Title.module.scss";
 
 interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;

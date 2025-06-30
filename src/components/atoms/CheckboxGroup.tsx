@@ -1,4 +1,4 @@
-import css from "./Checkbox.module.css";
+import css from "./Checkbox.module.scss";
 
 import { HTMLAttributes } from "react";
 

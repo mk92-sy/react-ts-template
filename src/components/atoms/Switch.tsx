@@ -1,5 +1,5 @@
 import { useDarkMode } from "context/DarakModeContext";
-import css from "./Switch.module.css";
+import css from "./Switch.module.scss";
 
 import { InputHTMLAttributes } from "react";
 

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { RadioGroupContext } from "../../context/RadioContext";
-import css from "./Radio.module.css";
+import css from "./Radio.module.scss";
 
 interface RadioGroupProps {
   direction?: string;

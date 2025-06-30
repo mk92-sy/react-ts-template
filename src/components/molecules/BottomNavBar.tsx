@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import css from "./BottomNavBar.module.css";
+import css from "./BottomNavBar.module.scss";
 
 const BottomNavBar = () => {
   const navigate = useNavigate();
@@ -8,9 +8,9 @@ const BottomNavBar = () => {
   const [activeMenu, setActiveMenu] = useState(pathname);
 
   const menuItems = [
-    { id: "sub1", href: "/a0002", icon: "🔍" },
-    { id: "home", href: "/a0001", icon: "🏠" },
-    { id: "sub2", href: "/a0003", icon: "❤️" },
+    { id: "sub1", href: "/a0002", icon: "" },
+    { id: "home", href: "/a0001", icon: "" },
+    { id: "sub2", href: "/a0003", icon: "" },
   ];
 
   return (
