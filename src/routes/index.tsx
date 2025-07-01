@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 // 페이지 컴포넌트 임포트
-import * as Pages from "../pages";
+import * as pages from "../pages";
 
 import DesktopMainLayout from "layout/DesktopMainLayout";
 import MobileMainLayout from "layout/MobileMainLayout";
@@ -18,16 +18,14 @@ const AppRoutes = () => {
       <Route
         element={isDesktopView ? <DesktopMainLayout /> : <MobileMainLayout />}
       >
-        <Route index path="/a0001" element={<Pages.A0001Page />} />
+        <Route index path="/" element={<pages.Main />} />
         {/* SUB PAGE */}
-        <Route path="/a0002" element={<Pages.A0002Page />} />
-        <Route path="/a0003" element={<Pages.A0003Page />} />
+        <Route path="/components" element={<pages.Sample1 />} />
+        <Route path="/readme" element={<pages.Sample2 />} />
         {/* ERROR PAGE */}
-        <Route path="*" element={<Pages.ErrorPage />} />
       </Route>
+      <Route path="*" element={<pages.Error />} />
       {/* SAMPLE PAGE */}
-      <Route path="/sample1" element={<Pages.SamplePage1 />} />
-      <Route path="/sample2" element={<Pages.SamplePage2 />} />
     </Routes>
   );
 };

@@ -200,4 +200,5 @@ export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
   setIsOpen: any;
   timer: number;
+  pos?: number;
 }

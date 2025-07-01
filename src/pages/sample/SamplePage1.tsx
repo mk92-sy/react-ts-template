@@ -318,7 +318,12 @@ export default function SamplePage1() {
           setIsOpenDialog(false);
         }}
       />
-      <Toast isOpen={isOpenToast} setIsOpen={setIsOpenToast} timer={3000}>
+      <Toast
+        isOpen={isOpenToast}
+        setIsOpen={setIsOpenToast}
+        timer={3000}
+        pos={60}
+      >
         toast text
       </Toast>
     </>

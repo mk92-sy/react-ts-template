@@ -7,6 +7,8 @@ const Toast = ({
   setIsOpen,
   timer = 3000,
   children,
+  style,
+  pos = 20,
   ...rest
 }: TYPES.ToastProps) => {
   useEffect(() => {
@@ -15,10 +17,16 @@ const Toast = ({
         setIsOpen(false);
       }, timer);
     }
-    // eslint-disable-next-line
   }, [isOpen]);
   return (
-    <div className={`${css.toast} ${isOpen ? css.show : css.hide} `} {...rest}>
+    <div
+      className={`${css.toast}${isOpen ? ` ${css.show}` : ""}`}
+      style={{
+        transform: `translate(-50%, ${isOpen ? -pos * 0.1 : 5}rem)`,
+        ...style,
+      }}
+      {...rest}
+    >
       {children}
     </div>
   );

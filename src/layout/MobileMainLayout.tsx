@@ -6,7 +6,9 @@ export default function MobileMainLayout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="wrapper">
+        <Outlet />
+      </div>
       <Footer />
       <BottomNavBar />
     </>

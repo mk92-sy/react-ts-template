@@ -44,7 +44,7 @@ ol[role="list"] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-height: 100svh;
   font-size: 10px;
   line-height: 1.5;
 }
@@ -107,8 +107,8 @@ button {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  -webkit-appearance: none;
 }
 
 /* Firefox */

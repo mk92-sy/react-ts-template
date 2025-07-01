@@ -1,38 +1,39 @@
 .item {
   display: block;
   border: 1px solid var(--COLOR_GRAY_300);
+  overflow: hidden;
   border-radius: 0.8rem;
   -webkit-border-radius: 0.8rem;
   -moz-border-radius: 0.8rem;
   -ms-border-radius: 0.8rem;
   -o-border-radius: 0.8rem;
-  overflow: hidden;
 }
 
 .button {
-  background-color: var(--COLOR_GRAY_50);
-  color: var(--COLOR_GRAY_800);
-  width: 100%;
-  padding: 1rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem 1.6rem;
   border: 0;
+  width: 100%;
+  background-color: var(--COLOR_GRAY_50);
+  font-size: 1.4rem;
+  color: var(--COLOR_GRAY_800);
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
-  font-size: 1.4rem;
   h4 {
     font-size: 1.4rem;
+  }
+  &:focus-visible{
+    outline: 2px solid #fff;
+    box-shadow: 0 0 0 2px inset #fff;
   }
 }
 
 .panel {
+  overflow: visible;
   position: relative;
   transition: all 0.3s ease-in-out;
-  overflow: visible;
   > div {
     transition: height 0.3s ease-in-out;
     -webkit-transition: height 0.3s ease-in-out;

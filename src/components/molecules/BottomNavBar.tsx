@@ -8,9 +8,9 @@ const BottomNavBar = () => {
   const [activeMenu, setActiveMenu] = useState(pathname);
 
   const menuItems = [
-    { id: "sub1", href: "/a0002", icon: "" },
-    { id: "home", href: "/a0001", icon: "" },
-    { id: "sub2", href: "/a0003", icon: "" },
+    { id: "sub1", href: "/components", icon: "components" },
+    { id: "home", href: "/", icon: "home" },
+    { id: "sub2", href: "/readme", icon: "readme" },
   ];
 
   return (
@@ -26,7 +26,7 @@ const BottomNavBar = () => {
             setActiveMenu(item.href);
           }}
         >
-          <span className={css.icon}>{item.icon}</span>
+          <span className={css.icon} />
         </button>
       ))}
     </nav>
