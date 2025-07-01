@@ -1,11 +1,6 @@
 import css from "./Label.module.scss";
-import { LabelHTMLAttributes, useEffect, useRef, useState } from "react";
-
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
-  line?: boolean;
-  // 필수 prop인 경우 Required<type>['속성명']
-  // children: Required<ButtonHTMLAttributes<HTMLButtonElement>>["children"];
-}
+import { useEffect, useRef, useState } from "react";
+import * as TYPES from "types";
 
 const Label = ({
   line = false,
@@ -14,7 +9,7 @@ const Label = ({
   className,
   htmlFor,
   ...rest
-}: LabelProps) => {
+}: TYPES.LabelProps) => {
   const containerRef = useRef<HTMLLabelElement | null>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
   useEffect(() => {

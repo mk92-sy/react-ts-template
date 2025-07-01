@@ -1,11 +1,8 @@
 import css from "./Input.module.scss";
-import { InputHTMLAttributes, ChangeEvent, forwardRef } from "react";
+import { forwardRef } from "react";
+import * as TYPES from "types";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Input = forwardRef<HTMLInputElement, TYPES.InputProps>(
   ({ type, onChange, className, ...rest }, ref) => {
     return (
       <input

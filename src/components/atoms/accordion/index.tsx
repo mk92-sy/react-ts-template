@@ -1,17 +1,9 @@
-import { AccordionProvider, useAccordion } from "context/AccordionContext";
-import React, { useRef, useEffect, useState } from "react";
+import { useAccordion } from "context/AccordionContext";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import Icon from "../icon";
 import css from "./Accordion.module.scss";
 
 import * as TYPES from "types";
-
-/* 아코디언 래퍼 */
-export const Accordion = ({
-  children,
-  type = "single",
-}: TYPES.AccordionProps) => {
-  return <AccordionProvider type={type}>{children}</AccordionProvider>;
-};
 
 export const AccordionButton = ({
   isOpen,
@@ -81,11 +73,11 @@ export const AccordionPanel = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [totalHeight, setTotalHeight] = useState<any>(0);
 
-  const calculateHeight = () => {
+  const calculateHeight = useCallback(() => {
     if (containerRef.current && isOpen) {
       setTotalHeight(containerRef.current.scrollHeight);
     }
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", calculateHeight);

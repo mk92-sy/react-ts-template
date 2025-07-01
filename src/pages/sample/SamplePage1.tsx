@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 
-import { Accordion } from "context/Accordion";
 import {
   AccordionButton,
   AccordionItem,
@@ -19,6 +18,7 @@ import { Radio, RadioGroup } from "components/atoms/radio";
 import { Dialog } from "components/organisms";
 
 import { useDarkMode } from "context/DarakModeContext";
+import { Accordion } from "context/AccordionContext";
 
 export default function SamplePage1() {
   const [isLoading, setIsLoading] = useState(true);
@@ -313,7 +313,7 @@ export default function SamplePage1() {
         type="alert"
         title="타이틀"
         content="content"
-        onClose={(e) => {
+        onClose={(e: { stopPropagation: () => void }) => {
           e.stopPropagation();
           setIsOpenDialog(false);
         }}

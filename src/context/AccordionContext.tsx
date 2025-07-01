@@ -1,24 +1,14 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext } from "react";
+import * as TYPES from "types";
 
-interface AccordionContextType {
-  activeIndexes: number[];
-  setActiveIndexes: React.Dispatch<React.SetStateAction<number[]>>;
-  type: "single" | "multiple";
-}
-
-const AccordionContext = createContext<AccordionContextType | undefined>(
+const AccordionContext = createContext<TYPES.AccordionContextType | undefined>(
   undefined
 );
 
-interface AccordionProviderProps {
-  children: React.ReactNode;
-  type: "single" | "multiple";
-}
-
-export const AccordionProvider = ({
+const AccordionProvider = ({
   children,
   type,
-}: AccordionProviderProps) => {
+}: TYPES.AccordionProviderProps) => {
   const [activeIndexes, setActiveIndexes] = useState<number[]>([]);
 
   const value = {
@@ -34,10 +24,17 @@ export const AccordionProvider = ({
   );
 };
 
-export const useAccordion = (): AccordionContextType => {
+export const useAccordion = (): TYPES.AccordionContextType => {
   const context = useContext(AccordionContext);
   if (context === undefined) {
     throw new Error("useAccordion must be used within an AccordionProvider");
   }
   return context;
+};
+
+export const Accordion = ({
+  children,
+  type = "single",
+}: TYPES.AccordionProps) => {
+  return <AccordionProvider type={type}>{children}</AccordionProvider>;
 };

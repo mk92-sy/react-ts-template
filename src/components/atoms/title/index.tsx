@@ -1,17 +1,14 @@
-import React, { HTMLAttributes } from "react";
+import React from "react";
 import styles from "./Title.module.scss";
 
-interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  className?: string;
-}
+import * as TYPES from "types";
 
 export default function Title({
   className,
   headingLevel = 1,
   children,
   ...rest
-}: TitleProps) {
+}: TYPES.TitleProps) {
   const Tag = `h${headingLevel}` as keyof JSX.IntrinsicElements;
   return React.createElement(
     Tag,

@@ -1,14 +1,7 @@
-import React, { createContext, useContext } from "react";
+import { createContext, useContext } from "react";
+import * as TYPES from "types";
 
-export interface SelectContextType {
-  selectedValue: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  focusedIndex: number;
-  setFocusedIndex: (index: number) => void;
-}
-
-export const SelectContext = createContext<SelectContextType | undefined>(
+export const SelectContext = createContext<TYPES.SelectContextType | undefined>(
   undefined
 );
 

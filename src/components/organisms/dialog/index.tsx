@@ -4,16 +4,7 @@ import Button from "../../atoms/button";
 import css from "./Dialog.module.scss";
 import { Dimm } from "components/atoms/dimm";
 
-interface DialogProps {
-  type?: "confirm" | "alert";
-  isOpen: boolean;
-  title: string;
-  content: string;
-  confirmButtonText?: string;
-  cancleButtonText?: string;
-  onConfirm?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onClose: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import * as TYPES from "types";
 
 const Dialog = ({
   isOpen = false,
@@ -25,7 +16,7 @@ const Dialog = ({
   onConfirm,
   onClose,
   ...rest
-}: DialogProps) => {
+}: TYPES.DialogProps) => {
   const dialogRef = useRef(null);
   useFocusTrap(dialogRef, isOpen);
   return (

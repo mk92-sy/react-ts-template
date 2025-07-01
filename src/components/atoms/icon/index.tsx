@@ -1,11 +1,7 @@
-import { HTMLAttributes } from "react";
 import css from "./Icon.module.scss";
+import * as TYPES from "types";
 
-interface IconProps extends HTMLAttributes<HTMLButtonElement> {
-  type: "plus" | "dash" | "spinner" | "close";
-}
-
-export default function Icon({ type }: IconProps): JSX.Element {
+export default function Icon({ type }: TYPES.IconProps): JSX.Element {
   switch (type) {
     case "plus":
     case "dash":

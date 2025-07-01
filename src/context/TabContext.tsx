@@ -1,29 +1,21 @@
-import { createContext, useContext, ReactNode } from "react";
+import { createContext, useContext } from "react";
+import * as TYPES from "types";
 
-interface TabContextType<T> {
-  activeTab: T;
-  setActiveTab: (value: T) => void;
-}
+const TabContext = createContext<TYPES.TabContextType<any> | undefined>(
+  undefined
+);
 
-const TabContext = createContext<TabContextType<any> | undefined>(undefined);
-
-interface TabProviderProps<T> {
-  children: ReactNode;
-  value: T;
-  onChange: (value: T) => void;
-}
-
-export function TabProvider<T>({
+export const TabProvider = <T,>({
   children,
   value,
   onChange,
-}: TabProviderProps<T>) {
+}: TYPES.TabProviderProps<T>) => {
   return (
     <TabContext.Provider value={{ activeTab: value, setActiveTab: onChange }}>
       {children}
     </TabContext.Provider>
   );
-}
+};
 
 export const useTabContext = () => {
   const context = useContext(TabContext);

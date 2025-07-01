@@ -1,13 +1,6 @@
 import css from "./Toast.module.scss";
-import { HTMLAttributes, useEffect } from "react";
-
-interface ToastProps extends HTMLAttributes<HTMLDivElement> {
-  isOpen: boolean;
-  setIsOpen: any;
-  timer: number;
-  // 필수 prop인 경우 Required<type>['속성명']
-  // children: Required<ButtonHTMLAttributes<HTMLButtonElement>>["children"];
-}
+import { useEffect } from "react";
+import * as TYPES from "types";
 
 const Toast = ({
   isOpen = false,
@@ -15,7 +8,7 @@ const Toast = ({
   timer = 3000,
   children,
   ...rest
-}: ToastProps) => {
+}: TYPES.ToastProps) => {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {

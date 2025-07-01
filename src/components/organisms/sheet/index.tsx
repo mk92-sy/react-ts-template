@@ -1,14 +1,9 @@
-import { HTMLAttributes, useRef } from "react";
+import { useRef } from "react";
 import { useFocusTrap } from "../../../hooks/useFocus";
 import Button from "../../atoms/button";
 import css from "./BottomSheet.module.scss";
 import { Dimm } from "components/atoms/dimm";
-
-interface BottomSheetProps extends HTMLAttributes<HTMLElement> {
-  isOpen: boolean;
-  title: string;
-  onClose: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import * as TYPES from "types";
 
 function BottomSheet({
   isOpen = false,
@@ -16,7 +11,7 @@ function BottomSheet({
   children,
   onClose,
   ...rest
-}: BottomSheetProps) {
+}: TYPES.BottomSheetProps) {
   const bottomSheetRef = useRef(null);
   useFocusTrap(bottomSheetRef, isOpen);
   return (
