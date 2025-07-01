@@ -1,0 +1,50 @@
+.group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  > div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &.col {
+    flex-direction: column;
+    > div {
+      align-items: start;
+      justify-content: start;
+    }
+  }
+}
+.checkbox {
+  position: relative;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  background-color: var(--COLOR_GRAY_100);
+  cursor: pointer;
+  appearance: none;
+  border-radius: 0.4rem;
+  -webkit-border-radius: 0.4rem;
+  -moz-border-radius: 0.4rem;
+  -ms-border-radius: 0.4rem;
+  -o-border-radius: 0.4rem;
+  &:checked {
+    background-color: var(--COLOR_PRIMARY);
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2rem;
+      height: 2rem;
+      background-image: url('../../../assets/images/check.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      content: "";
+    }
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}

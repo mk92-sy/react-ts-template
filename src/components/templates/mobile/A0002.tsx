@@ -1,7 +1,5 @@
-import { Tab } from "components/atoms/tabs/Tab";
-import { TabList } from "components/atoms/tabs/TabList";
-import { TabPanel } from "components/atoms/tabs/TabPanel";
-import { Tabs } from "components/atoms/tabs/Tabs";
+import { Tab, TabList, TabPanel, Tabs } from "components/atoms/tabs";
+
 import { useState } from "react";
 
 export default function A0002MobileContents() {

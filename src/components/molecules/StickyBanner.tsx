@@ -1,5 +1,6 @@
+import Button from "components/atoms/button";
+import Icon from "components/atoms/icon";
 import { useState } from "react";
-import { Button, Icon } from "../atoms";
 
 export default function StickyBanner() {
   const [isOpen, setIsOpen] = useState<boolean>(true);

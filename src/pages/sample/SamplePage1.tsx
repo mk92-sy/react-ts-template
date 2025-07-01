@@ -1,25 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 
 import { Accordion } from "context/Accordion";
-
 import {
   AccordionButton,
   AccordionItem,
   AccordionPanel,
-  Button,
-  Input,
-  Title,
-  Checkbox,
-  Switch,
-  Icon,
-  Label,
-  Toast,
-  Radio,
-  RadioGroup,
-} from "components/atoms";
+} from "components/atoms/accordion";
+
+import Title from "components/atoms/title";
+import Label from "components/atoms/label";
+import Switch from "components/atoms/switch";
+import Button from "components/atoms/button";
+import Icon from "components/atoms/icon";
+import Input from "components/atoms/input";
+import Toast from "components/atoms/toast";
+import { Checkbox, CheckboxGroup } from "components/atoms/checkbox";
+import { Radio, RadioGroup } from "components/atoms/radio";
 import { Dialog } from "components/organisms";
+
 import { useDarkMode } from "context/DarakModeContext";
-import CheckboxGroup from "components/atoms/CheckboxGroup";
 
 export default function SamplePage1() {
   const [isLoading, setIsLoading] = useState(true);
@@ -256,7 +255,7 @@ export default function SamplePage1() {
               placeholder="241235"
               type="number"
               inputMode="decimal"
-              onKeyDown={(evt) =>
+              onKeyDown={(evt: any) =>
                 ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
               }
               onFocus={() => {
@@ -268,7 +267,7 @@ export default function SamplePage1() {
               maxLength={6}
               value={inputValue1}
               style={{ minWidth: "calc(50% - 14px)" }}
-              onChange={(e) => {
+              onChange={(e: any) => {
                 setInputValue1(e.target.value.slice(0, 6));
               }}
               ref={inputRef1}
@@ -282,7 +281,7 @@ export default function SamplePage1() {
                 id="telNum2"
                 placeholder="1"
                 type="number"
-                onKeyDown={(evt) =>
+                onKeyDown={(evt: any) =>
                   ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
                 }
                 onFocus={() => {
@@ -293,7 +292,7 @@ export default function SamplePage1() {
                 }}
                 maxLength={1}
                 value={inputValue2}
-                onChange={(e) => {
+                onChange={(e: any) => {
                   setInputValue2(e.target.value.slice(0, 1));
                 }}
                 style={{ width: "10px" }}

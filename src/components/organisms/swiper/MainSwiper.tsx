@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import SwiperStartButton from "../../atoms/SwiperStartButton";
-import SwiperPauseButton from "../../atoms/SwiperPauseButton";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperStartButton, SwiperPauseButton } from "components/atoms/swiper";
+import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
+import { useState } from "react";
 
 export default function MainSwiper() {
   const [isPaused, setIsPaused] = useState<boolean>(false);

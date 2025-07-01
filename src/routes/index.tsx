@@ -3,8 +3,9 @@ import { Routes, Route } from "react-router-dom";
 // 페이지 컴포넌트 임포트
 import * as Pages from "../pages";
 
-import MobileMainLayout from "components/layouts/MobileMainLayout";
-import DesktopMainLayout from "components/layouts/DesktopMainLayout";
+import DesktopMainLayout from "layout/DesktopMainLayout";
+import MobileMainLayout from "layout/MobileMainLayout";
+
 import { useDesktopView } from "hooks/useDesktopView";
 
 const AppRoutes = () => {
